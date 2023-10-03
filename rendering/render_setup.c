@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_setup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fadermou <fadermou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 10:09:17 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/01 18:59:35 by fadermou         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:42:54 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	draw_ray(t_window *window, int pos)
 	i = render_ceiling(window, pos);
 	wall_h = window->map->wall_h;
 	get_offset_x(window->map, &dir, &text_offset_x);
-	// if (window->map->r.content == DOOR)
+	if (window->map->r.content == DOOR)
+		dir = EA;
 	// {
-	// 	// dir = EA;
 	// 	// s = 1;
 	// 	// if (window->map->vert == true)
 	// 	// 	text_offset_x = (int)(window->map->v.y) % window->map->textures[dir].h;

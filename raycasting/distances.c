@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   distances.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:02:14 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/01 15:40:14 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:21:06 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ int	check_case_h(t_map *map)
 	if (map->map[(int)(map->h.y - map->r.up) / UNIT][(int)map->h.x \
 	/ UNIT] == '1')
 	{
+		// printf("WALL\n");
 		map->r.content = WALL;
 		return (0);
 	}
 	else if (map->map[(int)(map->h.y - map->r.up) / UNIT][(int)map->h.x \
 	/ UNIT] == 'D')
 	{
+		// printf("DOOR\n");
 		map->r.content = DOOR;
 		return (0);
 	}
@@ -44,12 +46,14 @@ int	check_case_v(t_map *map)
 	if (map->map[(int)map->v.y / UNIT][((int)map->v.x - map->r.left) \
 	/ UNIT] == '1')
 	{
+		// printf("HEELL\n");
 		map->r.content = WALL;
 		return (0);
 	}
 	else if (map->map[(int)map->v.y / UNIT][((int)map->v.x - map->r.left) \
 	/ UNIT] == 'D')
 	{
+		// printf("HEELL DOOR\n");
 		map->r.content = DOOR;
 		return (0);
 	}
@@ -64,6 +68,7 @@ float	p_to_wall(t_map *map)
 	float	h;
 	float	v;
 
+	map->r.content = WALL;
 	y = map->p.u_y - map->h.y;
 	x = map->p.u_x - map->h.x;
 	h = sqrt(pow(x, 2) + pow(y, 2));
@@ -73,18 +78,20 @@ float	p_to_wall(t_map *map)
 	if (map->n_h || h >= v)
 	{
 		map->vert = true;
-		if (map->map[(int)(map->v.y / UNIT) - 1][(int)(map->v.x / UNIT) - 1])
+		if (map->map[(int)map->v.y / UNIT][((int)map->v.x - map->r.left) / UNIT] == 'D')
 		{
-			map->r.d_x = (map->v.x / UNIT) - 1;
-			map->r.d_y = (map->v.y/ UNIT) - 1;
+			map->r.content = DOOR;
+			map->r.d_y = (int)map->v.y / UNIT;
+			map->r.d_x = ((int)map->v.x - map->r.left) / UNIT;
 		}
 		return (v * cos((map->r.ang - map->r.cast) * M_PI / 180));
 	}
 	map->vert = false;
-	if (map->map[(int)(map->h.y / UNIT) - 1][(int)(map->h.x / UNIT) - 1])
+	if (map->map[(int)(map->h.y - map->r.up) / UNIT][(int)map->h.x / UNIT] == 'D')
 	{
-		map->r.d_x = (map->h.x / UNIT) - 1;
-		map->r.d_y = (map->h.y / UNIT) - 1;
+		map->r.content = DOOR;
+		map->r.d_y = (int)(map->h.y - map->r.up) / UNIT;
+		map->r.d_x = (int)map->h.x / UNIT;
 	}
 	return (h * cos((map->r.ang - map->r.cast) * M_PI / 180));
 }

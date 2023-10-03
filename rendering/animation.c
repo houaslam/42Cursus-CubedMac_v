@@ -6,7 +6,7 @@
 /*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 16:00:10 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/03 15:05:51 by hajarouasla      ###   ########.fr       */
+/*   Updated: 2023/10/03 15:15:07 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int perform_animation(t_window *window)
 		}
 		if (img)
 		{
-			w = PP_WIDTH / 2 - 100;
-			h = PP_HEIGHT / 2 + 180;
+			w = PP_WIDTH / 2 - 150;
+			h = PP_HEIGHT / 2 - 50;
 			mlx_put_image_to_window(window->mlx, window->mlx_win, img,w, h);
 		}
 		if (weapon == 35)

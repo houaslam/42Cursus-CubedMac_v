@@ -6,7 +6,7 @@
 /*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 07:38:31 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/02 22:06:43 by hajarouasla      ###   ########.fr       */
+/*   Updated: 2023/10/03 16:20:58 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,13 @@ int	which_move(int keycode, t_map *map)
 		move_up_down(map, keycode);
 	if (keycode == ARROW_LEFT || keycode == ARROW_RIGHT)
 		turn_move(keycode, map);
-	if (keycode == SPACE && map->map[map->r.d_y][map->r.d_x] == 'D')
+	if (keycode == SPACE )
 		map->map[map->r.d_y][map->r.d_x] = 48;
 	if (keycode == FIRE)
 		map->window->DO_ANIMATION = true;
 	if (keycode == DESTROY)
 		ft_exit(map->window);
+    mlx_clear_window(map->window->mlx, map->window->mlx_win);
 	rays_casting(map, map->window);
 	return (0);
 }

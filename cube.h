@@ -6,7 +6,7 @@
 /*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 11:29:31 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/03 15:01:31 by hajarouasla      ###   ########.fr       */
+/*   Updated: 2023/10/03 15:13:31 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <stdio.h>
 # include <math.h>
 
-# define PP_HEIGHT 1000
-# define PP_WIDTH 1600
+# define PP_HEIGHT 500
+# define PP_WIDTH 800
 # define UNIT 64
 # define VIEW_D 60
 # define PURPLE 0x9facb7
