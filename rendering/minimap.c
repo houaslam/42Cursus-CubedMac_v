@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 08:59:03 by houaslam          #+#    #+#             */
-/*   Updated: 2023/08/23 20:02:39 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:17:03 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ void	base(t_map *map)
 {
 	int	x;
 	int	y;
-	int		k;
-
-	k = MINI_UNIT;
 
 	y = 0;
 	while (y < PP_HEIGHT / 5)
@@ -51,11 +48,7 @@ void	base(t_map *map)
 	map->minimap.width = PP_WIDTH / 5;
 	map->minimap.mini_p.u_x = (map->p.u_x / UNIT) * MINI_UNIT;
 	map->minimap.mini_p.u_y = (map->p.u_y / UNIT) * MINI_UNIT;
-	(void)k;
-	// map->minimap.player = mlx_xpm_file_to_image(map->window->mlx 
-	// , "rendering/player.xpm", &k, &k);
-	// mlx_put_image_to_window(map->window->mlx, map->window->mlx_win 
-	// , map->minimap.player, 90, 80);
+
 }
 
 int	check(t_map *map, double x, double y)
@@ -65,9 +58,11 @@ int	check(t_map *map, double x, double y)
 	if (y / MINI_UNIT >= map->m_y \
 	|| x / MINI_UNIT >= map->m_x)
 		return (0);
-	if (map->map[(int)y / MINI_UNIT][(int)x / MINI_UNIT] != '1')
-		return (0);
-	return (1);
+	if (map->map[(int)y / MINI_UNIT][(int)x / MINI_UNIT] == '1' ) 
+		return (1);
+	if (map->map[(int)y / MINI_UNIT][(int)x / MINI_UNIT] == 'D' )
+		return (2);
+	return (0);
 }
 
 void DrawCircle(int x, int y, int r, t_map *map)
@@ -108,8 +103,10 @@ void    draw_minimap(t_map *map)
         x_mov = 0;
         while (x_mov < map->minimap.width)
         {
-            if (check(map, x, y))
+            if (check(map, x, y) == 1)
                 my_mlx_pixel_put(&map->mini, x_mov, y_mov, BLACK);
+			if (check(map, x, y) == 2)
+                my_mlx_pixel_put(&map->mini, x_mov, y_mov, YELLOW);
             x_mov++;
             x++;
         }

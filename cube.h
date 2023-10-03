@@ -6,7 +6,7 @@
 /*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 11:29:31 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/02 22:06:03 by hajarouasla      ###   ########.fr       */
+/*   Updated: 2023/10/03 15:01:31 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ enum {
 	RIGHT = 2,
 	DOWN = 1,
 	FIRE = 3,
-	SPACE = 53,
-	DESTROY = 49,
+	SPACE = 49,
+	DESTROY = 53,
 	SPEED = 30,
 	MINI_UNIT = 15,
 	DOOR = 111,
@@ -156,6 +156,7 @@ typedef struct s_window{
 	void				*mlx_win;
 	struct s_map		*map;
 	bool				DO_ANIMATION;
+	t_data				animation;
 }	t_window;
 
 #endif
