@@ -6,12 +6,11 @@
 /*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 12:34:20 by houaslam          #+#    #+#             */
-/*   Updated: 2023/09/24 15:05:58 by hajarouasla      ###   ########.fr       */
+/*   Updated: 2023/10/04 12:12:08 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
-
 
 void	find_wall(t_map *map)
 {

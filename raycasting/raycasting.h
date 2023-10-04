@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:47:14 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/02 13:24:13 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:11:15 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void					draw_wall(t_map *map, t_window *window);
 int						check_case_h(t_map *map);
 int						check_case_v(t_map *map);
 void					check_angles(t_map *map);
-int perform_animation(t_window *window);
+int						check(t_map *map, double x, double y);
+int						perform_animation(t_window *window);
 
 
 // quadrant

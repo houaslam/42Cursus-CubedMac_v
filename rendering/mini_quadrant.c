@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_quadrant.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 09:54:58 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/01 14:54:27 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:04:13 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	keep_adding(t_map *map)
 	}
 }
 
-int	check_tip(t_map *map, int y)
+int	_tip(t_map *map, int y)
 {
 	if (y < 0)
 		return (0);

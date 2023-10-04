@@ -6,7 +6,7 @@
 /*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:02:14 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/03 16:21:06 by hajarouasla      ###   ########.fr       */
+/*   Updated: 2023/10/04 12:11:52 by hajarouasla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@ int	check_case_h(t_map *map)
 	if (map->map[(int)(map->h.y - map->r.up) / UNIT][(int)map->h.x \
 	/ UNIT] == '1')
 	{
-		// printf("WALL\n");
 		map->r.content = WALL;
 		return (0);
 	}
 	else if (map->map[(int)(map->h.y - map->r.up) / UNIT][(int)map->h.x \
 	/ UNIT] == 'D')
 	{
-		// printf("DOOR\n");
 		map->r.content = DOOR;
 		return (0);
 	}
@@ -46,20 +44,17 @@ int	check_case_v(t_map *map)
 	if (map->map[(int)map->v.y / UNIT][((int)map->v.x - map->r.left) \
 	/ UNIT] == '1')
 	{
-		// printf("HEELL\n");
 		map->r.content = WALL;
 		return (0);
 	}
 	else if (map->map[(int)map->v.y / UNIT][((int)map->v.x - map->r.left) \
 	/ UNIT] == 'D')
 	{
-		// printf("HEELL DOOR\n");
 		map->r.content = DOOR;
 		return (0);
 	}
 	return (1);
 }
-
 
 float	p_to_wall(t_map *map)
 {
@@ -78,7 +73,7 @@ float	p_to_wall(t_map *map)
 	if (map->n_h || h >= v)
 	{
 		map->vert = true;
-		if (map->map[(int)map->v.y / UNIT][((int)map->v.x - map->r.left) / UNIT] == 'D')
+		if (check(map, ((int)map->v.x - map->r.left) / UNIT, (int)map->v.y / UNIT) == 2)
 		{
 			map->r.content = DOOR;
 			map->r.d_y = (int)map->v.y / UNIT;
@@ -87,7 +82,7 @@ float	p_to_wall(t_map *map)
 		return (v * cos((map->r.ang - map->r.cast) * M_PI / 180));
 	}
 	map->vert = false;
-	if (map->map[(int)(map->h.y - map->r.up) / UNIT][(int)map->h.x / UNIT] == 'D')
+	if (check(map, (int)map->h.x / UNIT, (int)(map->h.y - map->r.up) / UNIT) == 2)
 	{
 		map->r.content = DOOR;
 		map->r.d_y = (int)(map->h.y - map->r.up) / UNIT;
