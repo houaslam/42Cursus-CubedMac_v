@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*   By: fadermou <fadermou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:47:14 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/04 23:05:51 by macbookair       ###   ########.fr       */
+/*   Updated: 2023/10/07 14:01:39 by fadermou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_animation(t_window *window);
 // render
 void	loads_textures(t_textures *txt);
 void	draw_ray(t_window *window, int pos);
-void	get_offset_x(t_map *map, int *dir, int *text_offset_x);
+void	get_offset_x(t_map *map, int *dir);
 
 // raycasting
 

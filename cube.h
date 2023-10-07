@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fadermou <fadermou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 11:29:31 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/07 12:51:31 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/10/07 14:07:46 by fadermou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ enum {
 	DOOR = 111,
 	WALL = 222,
 };
-
 
 typedef struct s_data
 {
@@ -116,6 +115,8 @@ typedef struct s_map
 	int					n_v;
 	int					n_h;
 	int					vert;
+	int					text_offset_x;
+	int					text_offset_y;
 	float				wall_h;
 	t_ray				r;
 	t_wall				h;
