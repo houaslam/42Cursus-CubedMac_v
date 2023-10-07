@@ -6,12 +6,12 @@
 #    By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 12:53:10 by houaslam          #+#    #+#              #
-#    Updated: 2023/10/07 12:56:55 by houaslam         ###   ########.fr        #
+#    Updated: 2023/10/07 14:24:42 by houaslam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
-CC =  gcc -Wall -Werror -Wextra -fsanitize=address -g3  
+CC = cc
 CFLAGS = -I/usr/include -Imlx_linux -O3 -Wall -Werror -Wextra 
 EXTRA_FLAGS =  -Lmlx_macos -lmlx_macos -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
@@ -86,12 +86,6 @@ all : ${NAME}
 
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit  -o $(NAME)
-	
-# $(NAME): $(OBJ)
-# 	gcc $(OBJ)  -framework OpenGL -framework AppKit -o $(NAME)
-
-# ${NAME} : ${OBJ}
-# 	${CC} ${CFLAGS} ${EXTRA_FLAGS} ${OBJ} ${EXTRA_FLAGS} external_outils/libft/libft.a -o ${NAME}
 
 clean :
 	rm -rf ${OBJ}
@@ -99,8 +93,3 @@ fclean : clean
 	rm -rf ${NAME}
 
 re : fclean all
-
-push :
-	git add .
-	git commit -m cube
-	git push

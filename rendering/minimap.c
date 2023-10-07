@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 08:59:03 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/07 12:49:30 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/10/07 14:22:20 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	base(t_map *map)
 {
 	int	x;
 	int	y;
+	int	color;
 
 	y = 0;
 	while (y < PP_HEIGHT / 5)
@@ -39,7 +40,11 @@ int	base(t_map *map)
 		x = 0;
 		while (x < PP_WIDTH / 5)
 		{
-			my_mlx_pixel_put(&map->mini, x, y, 0xFF777777);
+			color = 0xFF777777;
+			if (y == 0 || x == 0 || y == PP_HEIGHT \
+			/ 5 - 1 || x == PP_WIDTH / 5 - 1)
+				color = RED;
+			my_mlx_pixel_put(&map->mini, x, y, color);
 			x++;
 		}
 		y++;

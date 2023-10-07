@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:48:02 by fadermou          #+#    #+#             */
-/*   Updated: 2023/10/01 14:53:55 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/10/07 14:23:55 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,6 @@ char	*ft_stchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-// char	*ft_stdup(char *st)
-// {
-// 	int		i;
-// 	char	*dup;
-
-// 	i = -1;
-// 	dup = malloc(sizeof(char) * ft_stlen(st) + 1);
-// 	if (!dup)
-// 		return (NULL);
-// 	while (st[++i])
-// 		dup[i] = st[i];
-// 	dup[i] = '\0';
-// 	return (dup);
-// }
 
 char	*ft_stjoin(char *s1, char *s2)
 {
