@@ -3,31 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mini_quadrant.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+        */
+/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 09:54:58 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/04 12:04:13 by hajarouasla      ###   ########.fr       */
+/*   Updated: 2023/10/04 15:13:48 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../raycasting/raycasting.h"
-
-// void	draw_player(t_map *map)
-// {
-// 	int	x;
-// 	int	y;
-
-// 	y = map->minimap.height / 2;
-// 	while (y > map->minimap.height / 2 - 15)
-// 	{
-// 		x = map->minimap.width / 2 + MINI_UNIT / 2;
-// 		while (x < map->minimap.width / 2 + MINI_UNIT / 2 + 2)
-// 			my_mlx_pixel_put(&map->mini, x++, y, 225111);
-// 		y--;
-// 	}
-// 	draw_square(225111, map->minimap.width / 2, 
-// 	map->minimap.height / 2, map->window);
-// }
 
 void	keep_adding(t_map *map)
 {
@@ -71,7 +54,7 @@ void	mini_quadrant(t_map *map)
 {
 	int		k;
 	float	y;
-	float distance;
+	float	distance;
 
 	y = MINI_UNIT;
 	k = MINI_UNIT;

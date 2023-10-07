@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_dimension.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 23:05:14 by macbookair        #+#    #+#             */
-/*   Updated: 2023/10/01 14:00:44 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/10/04 23:28:19 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_join(char *ret, char c)
 		ret = ft_strjoin(ret, ";");
 	else if (c == 'D')
 		ret = ft_strjoin(ret, "D");
-	else 
+	else
 		put_error("INVALID CHARACTER");
 	return (ret);
 }
@@ -72,16 +72,15 @@ char	*ft_fill_it(char *str, t_map **map)
 			ret = ft_strjoin(ret, " ");
 		i++;
 	}
-	free (str);
+	free(str);
 	return (ret);
 }
 
-void    map_dimension(t_map **map, int i)
+void	map_dimension(t_map **map, int i)
 {
 	while ((*map)->map[i])
 	{
 		(*map)->map[i] = ft_fill_it((*map)->map[i], map);
 		i++;
 	}
-	
 }

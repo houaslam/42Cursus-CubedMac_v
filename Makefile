@@ -3,18 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hajarouaslam <hajarouaslam@student.42.f    +#+  +:+       +#+         #
+#    By: fadermou <fadermou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 12:53:10 by houaslam          #+#    #+#              #
-#    Updated: 2023/10/03 15:40:59 by hajarouasla      ###   ########.fr        #
+#    Updated: 2023/10/07 11:46:58 by fadermou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = cub3D
 CC =  gcc -Wall -Werror -Wextra #-fsanitize=address -g3  
 CFLAGS = -I/usr/include -Imlx_linux -O3 -Wall -Werror -Wextra 
-EXTRA_FLAGS =  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+EXTRA_FLAGS =  -Lmlx_macos -lmlx_macos -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 E_SRCS = external_outils/libft/ft_atoi.c \
        	 external_outils/libft/ft_isprint.c \
@@ -61,6 +60,7 @@ REND_SRCS = rendering/render_setup.c \
 	    	rendering/mini_quadrant.c \
 			rendering/loads_textures.c \
 	    	rendering/animation.c \
+	    	rendering/get_offset_x.c \
 
 P_SRCS = parsing/cardinal_directions2.c \
 		parsing/cardinal_directions.c \
@@ -70,6 +70,8 @@ P_SRCS = parsing/cardinal_directions2.c \
 		parsing/read_map.c \
 		parsing/parsing.c \
 		parsing/rgb_parse.c \
+		parsing/tools.c \
+		parsing/tools2.c \
 		main.c
 
 O_SRCS = external_outils/get_next_line/get_next_line.c \
@@ -80,9 +82,16 @@ OBJ =  ${P_SRCS:.c=.o} ${T_SRCS:.c=.o} ${O_SRCS:.c=.o} ${R_SRCS:.c=.o} ${REND_SR
 
 all : ${NAME}
 
-$(NAME): $(OBJ)
-	gcc $(OBJ) libmlx.a  -framework OpenGL -framework AppKit -o $(NAME)
 
+
+$(NAME) : $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit  -o $(NAME)
+	
+# $(NAME): $(OBJ)
+# 	gcc $(OBJ)  -framework OpenGL -framework AppKit -o $(NAME)
+
+# ${NAME} : ${OBJ}
+# 	${CC} ${CFLAGS} ${EXTRA_FLAGS} ${OBJ} ${EXTRA_FLAGS} external_outils/libft/libft.a -o ${NAME}
 
 clean :
 	rm -rf ${OBJ}

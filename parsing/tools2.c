@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   tools2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 14:37:04 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/04 15:18:02 by houaslam         ###   ########.fr       */
+/*   Created: 2023/10/04 23:15:10 by macbookair        #+#    #+#             */
+/*   Updated: 2023/10/04 23:15:19 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "parsing.h"
 
-void	ft_putendl_fd(char *s, int fd)
+long long	ft_condition(char *str, int i)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-	{
-		write (fd, &s[i], 1);
-		i++;
-	}
-	write (fd, "\n", 1);
+	if (i == 0)
+		return (ft_atoi(str) << 16);
+	if (i == 1)
+		return (ft_atoi(str) << 8);
+	if (i == 2)
+		return (ft_atoi(str));
+	return (0);
 }

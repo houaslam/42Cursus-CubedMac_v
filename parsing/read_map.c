@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 11:56:12 by fadermou          #+#    #+#             */
-/*   Updated: 2023/09/21 18:22:43 by macbookair       ###   ########.fr       */
+/*   Updated: 2023/10/04 22:58:10 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	check_file(char **av)
 			break ;
 		i++;
 	}
-	if (i == 0 || av[1][i + 1] != 'c' || av[1][i + 2] != 'u' \
-	|| av[1][i + 3] != 'b' || av[1][i + 4] != '\0')
+	if (i == 0 || av[1][i + 1] != 'c' || av[1][i + 2] != 'u' || av[1][i
+		+ 3] != 'b' || av[1][i + 4] != '\0')
 		put_error("FILE MUST BE ENDED BY \".cub\"!");
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
@@ -55,7 +55,7 @@ void	read_map(t_map **map, char **av)
 	tmp = NULL;
 	fd = check_file(av);
 	tmp = get_next_line(fd);
-	str = ft_strdup("");///.to be changed
+	str = ft_strdup("");
 	while (1)
 	{
 		if (!tmp)
@@ -71,6 +71,6 @@ void	read_map(t_map **map, char **av)
 		tmp = get_next_line(fd);
 	}
 	(*map)->map = ft_split(str, '\n');
-	free (str);
-	free (tmp);
+	free(str);
+	free(tmp);
 }

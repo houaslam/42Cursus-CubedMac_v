@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cardinal_directions.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/04 23:10:25 by macbookair        #+#    #+#             */
+/*   Updated: 2023/10/04 23:28:13 by macbookair       ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "parsing.h"
 
@@ -12,7 +23,7 @@ char	*ft_dup(char *str)
 	free(tmp1);
 	ret = ft_strdup(tmp);
 	free(tmp);
-	return(ret);
+	return (ret);
 }
 
 char	**split_it(char *map)
@@ -26,7 +37,7 @@ char	**split_it(char *map)
 		ft_free(spl);
 		spl = ft_split(map, ' ');
 	}
-	return(spl);
+	return (spl);
 }
 
 int	directions_compar(char *str, t_directions *dir, int *s, int i)
@@ -51,9 +62,7 @@ int	directions_compar(char *str, t_directions *dir, int *s, int i)
 			put_error("TOO MANY CARDINAL DIRECTIONS");
 		return (WE);
 	}
-	else
-		return (ea_and_colors(str, dir, s, i));
-	return (0);
+	return (ea_and_colors(str, dir, s, i));
 }
 
 char	*parse_arg(char *map, int *end)
@@ -69,18 +78,18 @@ char	*parse_arg(char *map, int *end)
 	while (map[j])
 	{
 		if (map[j] == ' ' || map[j] == '\t')
-			break;
+			break ;
 		j++;
 	}
 	*end = j;
-	ret = ft_substr(map, start , *end - start);
+	ret = ft_substr(map, start, *end - start);
 	while (map[j] == ' ' || map[j] == '\t')
 		j++;
 	*end = j;
 	return (ret);
 }
 
-void	cardinal_directions(t_map **map, int *s)//// after read last note
+void	cardinal_directions(t_map **map, int *s)
 {
 	char	*crdl;
 	char	*content;
@@ -103,22 +112,3 @@ void	cardinal_directions(t_map **map, int *s)//// after read last note
 		i++;
 	}
 }
-//// [DONE]..fill directions with null and whenever it takes a value check if it has null first {split + lenght == 2}
-//// [DONE]at the end before i start with map check if my struct has no nall
-//// [DONE]don't forget to write "error\n" first
-//// [DONE]what if we added a line that has str_lenght == 3
-//// [DONE]wtb if we had tabs and spaces
-//// [DONE]when i start with map start checkin '0' if it's surronded by space == error first/last line and colones
-//// [DONE]check if map has another character !(0 && 1 && E && W && S && N)
-//// [DONE]check empty line
-//// [DONE]resize map
-//// [DONE]m_y and m_x
-//// [DONE]check textures in parsing(strtrim(" " && "\t"))
-//// [DONE]TEST this -> F    	220,100,0
-//// [DONE]I should use substr in parsing
-//// [DONE]RGB   
-//// [DONE]change gnl
-//// [DONE]check leaks
-//// I should free when there is an error
-//// check norm
-//// IF I EDITED IN -> "C 233,   20 8 ,200\n F    0,   100,0" space on g in ceiling changes the color of floor

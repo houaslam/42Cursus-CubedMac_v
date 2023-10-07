@@ -1,21 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cardinal_directions2.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/04 23:20:59 by macbookair        #+#    #+#             */
+/*   Updated: 2023/10/04 23:28:16 by macbookair       ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "parsing.h"
 
-long long	ft_condition(char *str, int i)
-{
-	if (i == 0)
-		return (ft_atoi(str) << 16);
-	if (i == 1)
-		return (ft_atoi(str) << 8);
-	if (i == 2)
-		return (ft_atoi(str));
-	return (0);
-}
-
 int	ft_int_dup(char *str)
 {
-	char	*tmp;
-	char	**spl;
+	char		*tmp;
+	char		**spl;
 	long long	i;
 	long long	res;
 
@@ -38,6 +38,7 @@ int	ft_int_dup(char *str)
 	ft_free(spl);
 	return (res);
 }
+
 int	skipp_spaces(char *str, char to_find)
 {
 	int	i;
@@ -54,10 +55,15 @@ int	skipp_spaces(char *str, char to_find)
 	return (0);
 }
 
+void	get_start_of_map(t_directions *dir, int *s, int i)
+{
+	check_cardinal(dir);
+	*s = i;
+}
+
 int	ea_and_colors(char *str, t_directions *dir, int *s, int i)
 {
-	(void)i;
-    if (!ft_strcmp(str, "EA"))
+	if (!ft_strcmp(str, "EA"))
 	{
 		if (dir->ea)
 			put_error("TOO MANY CARDINAL DIRECTIONS");
@@ -66,33 +72,28 @@ int	ea_and_colors(char *str, t_directions *dir, int *s, int i)
 	else if (!ft_strcmp(str, "F"))
 	{
 		if (dir->f != -1)
-			put_error("TOO MANY F COLORS");////F ??
-		return (F);//// protect numb
+			put_error("TOO MANY F COLORS");
+		return (F);
 	}
 	else if (!ft_strcmp(str, "C"))
 	{
-		if (dir->c != -1)////repars it
-			put_error("TOO MANY C COLORS");////C ??
-		return (C);//// protect numb
+		if (dir->c != -1)
+			put_error("TOO MANY C COLORS");
+		return (C);
 	}
 	else if (!*s && skipp_spaces(str, '1'))
-	{
-		check_cardinal(dir);
-		*s = i;
-	}
+		get_start_of_map(dir, s, i);
 	else if (!ft_strcmp(str, ";"))
 		return (-2);
 	else if (!skipp_spaces(str, '1'))
-	{
 		put_error("MAP NOT VALID");
-	}
 	return (-2);
 }
 
 void	fill_struct(t_directions **dir, char *crdl, int index)
 {
 	if (!crdl || !*crdl)
-		return;
+		return ;
 	if (index == NO)
 		(*dir)->no = ft_dup(crdl);
 	else if (index == SO)

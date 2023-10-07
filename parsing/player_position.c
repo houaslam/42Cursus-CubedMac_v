@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 09:57:05 by fadermou          #+#    #+#             */
-/*   Updated: 2023/09/22 13:10:49 by macbookair       ###   ########.fr       */
+/*   Updated: 2023/10/04 22:57:54 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_player(t_map *map, int i, int j, int h)
 {
-	if (map->map[i][j] == 'N' || map->map[i][j] == 'S' \
-	|| map->map[i][j] == 'E' || map->map[i][j] == 'W')
+	if (map->map[i][j] == 'N' || map->map[i][j] == 'S' || map->map[i][j] == 'E'
+		|| map->map[i][j] == 'W')
 	{
 		map->p.x = j;
 		map->p.y = i - h;
@@ -88,5 +88,5 @@ void	check_cardinal(t_directions *dir)
 	if (dir->c == -1)
 		put_error("C COLOR IS MISSING");
 	if (dir->f == -1)
-		put_error("F COLOR IS MISSING");////remove comment
+		put_error("F COLOR IS MISSING");
 }
