@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:48:02 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/04 22:58:57 by macbookair       ###   ########.fr       */
+/*   Updated: 2023/10/07 12:34:15 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	rays_casting(t_map *map, t_window *window)
 		check_angles(map);
 		quadrant(map);
 		map->r.distance = p_to_wall(map);
+		if ((int)map->r.cast == (int)map->r.ang)
+			map->r.v_distance = map->r.distance;
 		map->wall_h = wall_height(map);
 		draw_ray(window, i);
 		map->r.cast -= (float)VIEW_D / PP_WIDTH;

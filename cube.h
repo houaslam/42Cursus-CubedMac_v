@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fadermou <fadermou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 11:29:31 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/07 11:30:03 by fadermou         ###   ########.fr       */
+/*   Updated: 2023/10/07 12:51:31 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 # define PP_WIDTH 1600
 # define UNIT 64
 # define VIEW_D 60
-# define PURPLE 0x9facb7
-# define PINK 0x00406c
-# define YELLOW 0xfafefd
-# define BLACK 0x000000
+# define GREY 0x414141
+# define RED 0xFF0000
+# define BLOOD 0xaf0404
+# define BLACK 0x252525
 
 enum {
 	NO = 0,
@@ -74,6 +74,7 @@ typedef struct s_wall
 
 typedef struct s_ray
 {
+	double				v_distance;
 	float				alpha;
 	float				ang;
 	float				cast;

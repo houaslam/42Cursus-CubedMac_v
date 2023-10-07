@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 11:31:12 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/04 22:28:17 by macbookair       ###   ########.fr       */
+/*   Updated: 2023/10/07 13:52:45 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ int	mouse(int x, int y, t_window *window)
 		rays_casting(window->map, window);
 	}
 	return (0);
+}
+
+void	mlx_setup(t_window *window)
+{
+	window->map->img.img = mlx_new_image(window->mlx, PP_WIDTH, PP_HEIGHT);
+	window->map->mini.img = mlx_new_image(window->mlx, \
+	PP_WIDTH / 5, PP_HEIGHT / 5);
+	window->s_animation = false;
+	rays_casting(window->map, window);
+	mlx_hook(window->mlx_win, 2, 1L << 0, which_move, window->map);
+	mlx_hook(window->mlx_win, 17, 0, ft_exit, window);
+	mlx_loop_hook(window->mlx, perform_animation, window);
+	mlx_hook(window->mlx_win, 6, 1L << 6, mouse, window);
+	mlx_loop(window->mlx);
 }
 
 int	main(int ac, char **av)
@@ -53,13 +67,5 @@ int	main(int ac, char **av)
 	player_view(&window.map);
 	map.p.u_x = (map.p.x * UNIT) + (UNIT / 2);
 	map.p.u_y = (map.p.y * UNIT) + (UNIT / 2);
-	map.img.img = mlx_new_image(window.mlx, PP_WIDTH, PP_HEIGHT);
-	map.mini.img = mlx_new_image(window.mlx, PP_WIDTH / 5, PP_HEIGHT / 5);
-	window.s_animation = false;
-	rays_casting(&map, &window);
-	mlx_hook(window.mlx_win, 2, 1L << 0, which_move, &map);
-	mlx_hook(window.mlx_win, 17, 0, ft_exit, &window);
-	mlx_loop_hook(window.mlx, perform_animation, &window);
-	mlx_hook(window.mlx_win, 6, 1L << 6, mouse, &window);
-	mlx_loop(window.mlx);
+	mlx_setup(&window);
 }

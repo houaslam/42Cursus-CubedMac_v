@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_setup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 10:09:17 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/04 23:05:30 by macbookair       ###   ########.fr       */
+/*   Updated: 2023/10/07 13:13:36 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	draw_ray(t_window *window, int pos)
 		distanceFromTop = i + (wall_h / 2) - (PP_HEIGHT / 2);
 		text_offset_y = distanceFromTop * ((float)window->map->textures[dir].h
 				/ wall_h);
+		if (text_offset_y >= window->map->textures[dir].h)
+			text_offset_y = window->map->textures[dir].h - 1;
 		color = window->map->textures[dir].add[(window->map->textures[dir].w
 				* text_offset_y) + text_offset_x];
 		my_mlx_pixel_put(&window->map->img, pos, i++, color);

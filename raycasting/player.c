@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 07:38:31 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/04 22:58:34 by macbookair       ###   ########.fr       */
+/*   Updated: 2023/10/07 12:32:58 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	which_move(int keycode, t_map *map)
 		move_up_down(map, keycode);
 	if (keycode == ARROW_LEFT || keycode == ARROW_RIGHT)
 		turn_move(keycode, map);
-	if (keycode == SPACE)
+	if (keycode == SPACE && map->r.v_distance < 77)
 		map->map[map->r.d_y][map->r.d_x] = 48;
 	if (keycode == FIRE)
 		map->window->s_animation = true;
