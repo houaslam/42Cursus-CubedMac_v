@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   animation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fadermou <fadermou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 16:00:10 by houaslam          #+#    #+#             */
-/*   Updated: 2023/10/07 11:49:15 by fadermou         ###   ########.fr       */
+/*   Updated: 2023/10/07 12:03:19 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../raycasting/raycasting.h"
 
-int animation_loop(int frame, int weapon, int *dim, t_window *window)
+int	animation_loop(int frame, int weapon, int *dim, t_window *window)
 {
-	void *img;
-	char *res;
-	char *which;
+	void	*img;
+	char	*res;
+	char	*which;
 
 	img = NULL;
 	which = NULL;
 	res = NULL;
-	(void)dim;
 	if (frame == 700 * (weapon))
 	{
 		mlx_clear_window(window->mlx, window->mlx_win);
@@ -33,21 +32,19 @@ int animation_loop(int frame, int weapon, int *dim, t_window *window)
 		img = mlx_xpm_file_to_image(window->mlx, res, &dim[1], &dim[0]);
 		free(which);
 		free(res);
-		// printf("->%p\n", img);
 		(weapon)++;
-		if (!img)
-			put_error("");
-		mlx_put_image_to_window(window->mlx, window->mlx_win, img,
-								PP_WIDTH / 2 - dim[1] / 2, PP_HEIGHT - dim[0]);
+		if (img)
+			mlx_put_image_to_window(window->mlx, window->mlx_win, img, \
+				PP_WIDTH / 2 - dim[1] / 2, PP_HEIGHT - dim[0]);
 	}
 	return (weapon);
 }
 
-int perform_animation(t_window *window)
+int	perform_animation(t_window *window)
 {
-	int dim[2];
-	static int frame;
-	static int weapon;
+	int			dim[2];
+	static int	frame;
+	static int	weapon;
 
 	dim[0] = 320;
 	dim[1] = 498;
